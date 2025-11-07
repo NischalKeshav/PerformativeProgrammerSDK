@@ -2,7 +2,7 @@
 #define COMBINDEFILES_H
 
 
-int CombineFiles();
+int CombineFiles(const char *dir, const char *filetype);
 
 
 

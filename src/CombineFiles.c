@@ -1,7 +1,6 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-int CombineFiles(){
-	printf("Hello Gang Gang Gang");
+int CombineFiles(char *dir, char *filetype){
 	return 0;
 }
