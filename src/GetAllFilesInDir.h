@@ -13,7 +13,7 @@ typedef struct {
 } FilePaths;
 
 
-FilePaths GetAllFilesinDir();
-
-
+FilePaths GetAllFilesinDir(char *direc);
+void DisplayFilePaths(FilePaths *dict );
+FilePaths fpexp;
 #endif

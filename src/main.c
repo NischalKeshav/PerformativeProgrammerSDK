@@ -9,6 +9,6 @@
 	for (int i=0; i<argc; i++){
 		printf("%s  \n", argv[i]);
 	}
-	CombineFiles("directory", ".c");
+	DisplayFilePaths(fpexp);
 	return 0;
 }

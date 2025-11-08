@@ -4,19 +4,18 @@
 #include <dirent.h>
 #include <sys/stat.h>
 
-
 typedef struct {
     char **paths;
     size_t count;
     size_t capacity;
 } FilePaths;
 
-FilePaths GetAllFilesInDir() {
+FilePaths GetAllFilesInDir(char *direc) {
     DIR *d;
     struct dirent *dir;
     FilePaths result = {NULL, 0, 0};
 
-    d = opendir(".");
+    d = opendir(*direc);
     if (d) {
         result.capacity = 10;
         result.paths = malloc(result.capacity * sizeof(char *));
@@ -37,7 +36,7 @@ FilePaths GetAllFilesInDir() {
                     result.capacity = 0;
                     return result;
                 }
-            }
+    }
             result.paths[result.count] = strdup(dir->d_name);
             result.count++;
         }
@@ -46,3 +45,16 @@ FilePaths GetAllFilesInDir() {
 
     return result;
 }
+void DisplayFilePaths(FilePaths *dict){
+	char **ptr = dict->paths;
+	while(*ptr!=NULL){
+		printf("String: %s\n", *ptr);
+		ptr++;
+	}
+}
+char *temp_paths[] = {"hi", "new", "sups"};
+FilePaths fpexp = {
+    .paths = temp_paths,
+    .count = 3,
+    .capacity = 3
+};
